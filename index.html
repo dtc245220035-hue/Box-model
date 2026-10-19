@@ -3,113 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách trong CSS</title>
+    <title>Bảng trong CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Danh sách trong CSS</h1>
+<div class="container">
+    <h1>Bảng trong CSS</h1>
 
-        <!-- ====== Phần 2: list-style-type: square ====== -->
-        <section>
-            <h2>2. Kiểu đánh dấu: <code>square</code></h2>
-            <p>Danh sách không có thứ tự – dấu đánh dấu dạng ô vuông.</p>
-            <ul class="list-square">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Git</li>
-            </ul>
-        </section>
+    <!-- ====== 1. Đường viền cơ bản ====== -->
+    <section>
+        <h2>1. Đường viền bảng – <code>border</code></h2>
+        <p>Sử dụng <code>border: 1px solid black</code> cho <code>table, th, td</code>. Bảng xuất hiện đường viền kép.</p>
+        <table class="table-border">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 3: list-style-type: upper-roman ====== -->
-        <section>
-            <h2>3. Danh sách có thứ tự – Số La Mã viết hoa</h2>
-            <p>Các bước học lập trình, đánh số bằng chữ số La Mã viết hoa.</p>
-            <ol class="list-roman">
-                <li>Học HTML</li>
-                <li>Học CSS</li>
-                <li>Học JavaScript</li>
-                <li>Học Git</li>
-            </ol>
-        </section>
+    <!-- ====== 2. border-collapse ====== -->
+    <section>
+        <h2>2. Gộp đường viền – <code>border-collapse: collapse</code></h2>
+        <p>Các đường viền liền kề được gộp thành một, loại bỏ đường viền kép.</p>
+        <table class="table-collapse">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 4: list-style-image ====== -->
-        <section>
-            <h2>4. Hình ảnh làm dấu đánh dấu</h2>
-            <p>Sử dụng <code>list-style-image</code> với file ảnh SVG tùy chỉnh.</p>
-            <ul class="list-image">
-                <li>Visual Studio Code</li>
-                <li>Google Chrome</li>
-                <li>GitHub</li>
-                <li>Git</li>
-            </ul>
-        </section>
+    <!-- ====== 3. width & height ====== -->
+    <section>
+        <h2>3. Chiều rộng và chiều cao – <code>width</code> / <code>height</code></h2>
+        <p>Bảng rộng 100%, hàng tiêu đề cao 50px.</p>
+        <table class="table-size">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 5: list-style-position ====== -->
-        <section>
-            <h2>5. Vị trí dấu đánh dấu: <code>outside</code> vs <code>inside</code></h2>
+    <!-- ====== 4. text-align ====== -->
+    <section>
+        <h2>4. Căn chỉnh ngang – <code>text-align</code></h2>
+        <p>Căn tiêu đề <code>&lt;th&gt;</code> về bên trái thay vì mặc định giữa.</p>
+        <table class="table-align">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-            <div class="position-demo">
-                <div>
-                    <h3>outside (mặc định)</h3>
-                    <ul class="list-outside">
-                        <li>Dấu đánh dấu nằm ngoài vùng văn bản, thụt lề rõ ràng</li>
-                        <li>Dòng thứ hai căn thẳng với dòng đầu của văn bản</li>
-                        <li>Thường dùng hơn</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>inside</h3>
-                    <ul class="list-inside">
-                        <li>Dấu đánh dấu nằm trong vùng văn bản, không thụt lề</li>
-                        <li>Dòng thứ hai căn thẳng sát lề trái của mục</li>
-                        <li>Phù hợp trong một số layout nhất định</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- ====== 5. vertical-align ====== -->
+    <section>
+        <h2>5. Căn chỉnh dọc – <code>vertical-align</code></h2>
+        <p>Các ô <code>&lt;td&gt;</code> cao 80px, nội dung căn xuống dưới (<code>bottom</code>).</p>
+        <table class="table-valign">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 6: Thuộc tính rút gọn list-style ====== -->
-        <section>
-            <h2>6. Thuộc tính rút gọn <code>list-style</code></h2>
-            <p>
-                Viết gọn: <code>list-style: square inside none;</code><br>
-                (type | position | image)
-            </p>
-            <ul class="list-shorthand">
-                <li>Viết CSS ngắn gọn hơn</li>
-                <li>Kết hợp type + position + image trong một dòng</li>
-                <li>Dễ bảo trì</li>
-                <li>Ưu tiên image nếu được đặt</li>
-            </ul>
-        </section>
+    <!-- ====== 6. padding ====== -->
+    <section>
+        <h2>6. Khoảng đệm – <code>padding</code></h2>
+        <p>Padding 15px giúp nội dung không bị sát đường viền, bảng trông thoáng hơn.</p>
+        <table class="table-padding">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 7: Màu sắc và khoảng cách ====== -->
-        <section>
-            <h2>7. Danh sách với màu sắc và khoảng cách</h2>
-            <ul class="list-colored">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-            </ul>
-        </section>
+    <!-- ====== 7. Màu sắc ====== -->
+    <section>
+        <h2>7. Màu sắc trong bảng – <code>background-color</code> / <code>color</code></h2>
+        <p>Header nền tối, chữ trắng. Các ô dữ liệu nền xám nhạt, chữ đậm.</p>
+        <table class="table-color">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tuổi</th>
+                <th>Lớp</th>
+            </tr>
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>20</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Trần Thị B</td>
+                <td>21</td>
+                <td>Web</td>
+            </tr>
+        </table>
+    </section>
 
-        <!-- ====== Phần 8: Bài tập tổng hợp ====== -->
-        <section class="section-tong-hop">
-            <h2>8. Lộ trình học lập trình Web</h2>
-            <ul class="list-roadmap">
-                <li>HTML – Nền tảng cấu trúc trang web</li>
-                <li>CSS – Định kiểu và giao diện</li>
-                <li>JavaScript – Tương tác và logic</li>
-                <li>Git – Quản lý phiên bản mã nguồn</li>
-                <li>GitHub – Lưu trữ và cộng tác dự án</li>
-            </ul>
-        </section>
+    <!-- ====== 8. Bảng tổng hợp hoàn chỉnh ====== -->
+    <section class="section-full">
+        <h2>8. Bảng hoàn chỉnh – Tổng hợp tất cả kỹ thuật</h2>
+        <p>Kết hợp: border-collapse, width, padding, text-align, vertical-align, màu sắc, hover, zebra stripes.</p>
+        <table class="table-full">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Họ tên</th>
+                    <th>Tuổi</th>
+                    <th>Lớp</th>
+                    <th>Điểm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>20</td>
+                    <td>Web</td>
+                    <td>9.0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Trần Thị B</td>
+                    <td>21</td>
+                    <td>Web</td>
+                    <td>8.5</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lê Văn C</td>
+                    <td>22</td>
+                    <td>Java</td>
+                    <td>7.8</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Phạm Thị D</td>
+                    <td>20</td>
+                    <td>Java</td>
+                    <td>8.2</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Hoàng Văn E</td>
+                    <td>23</td>
+                    <td>Web</td>
+                    <td>9.5</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    </div>
+</div>
 
 </body>
 </html>
