@@ -3,129 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Research Survey</title>
+    <title>Danh sách sản phẩm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f2f5;
             color: #333;
-            line-height: 1.6;
-            padding: 20px;
+            padding: 40px 20px;
         }
-        .survey-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h2 {
+
+        h1 {
             text-align: center;
             color: #2c3e50;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 2rem;
         }
-        .form-group {
-            margin-bottom: 15px;
+
+        .table-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        select,
-        textarea {
+
+        table {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            border-collapse: collapse;
         }
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
-        .radio-group, .checkbox-group {
-            margin-top: 5px;
-        }
-        .radio-group label, .checkbox-group label {
-            display: inline-block;
-            font-weight: normal;
-            margin-right: 15px;
-        }
-        button[type="submit"] {
-            display: block;
-            width: 100%;
-            background: #3498db;
+
+        thead {
+            background-color: #3498db;
             color: #fff;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
         }
-        button[type="submit"]:hover {
-            background: #2980b9;
+
+        th {
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.95rem;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #eaf4fb;
+            transition: background-color 0.2s;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(even):hover {
+            background-color: #eaf4fb;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .qty {
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<div class="survey-container">
-    <h2>Market Research Survey</h2>
-    <form action="#" method="POST">
-        
-        <div class="form-group">
-            <label for="name">Họ và tên:</label>
-            <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
-        </div>
+    <h1>Danh sách sản phẩm</h1>
 
-        <div class="form-group">
-            <label for="age">Tuổi:</label>
-            <input type="number" id="age" name="age" placeholder="Nhập số tuổi" required>
-        </div>
-
-        <div class="form-group">
-            <label>Giới tính:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="gender" value="male"> Nam</label>
-                <label><input type="radio" name="gender" value="female"> Nữ</label>
-                <label><input type="radio" name="gender" value="other"> Khác</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="income">Mức thu nhập hàng tháng:</label>
-            <select id="income" name="income">
-                <option value="">-- Chọn mức thu nhập --</option>
-                <option value="under5">Dưới 5 triệu</option>
-                <option value="5to10">5 - 10 triệu</option>
-                <option value="10to20">10 - 20 triệu</option>
-                <option value="over20">Trên 20 triệu</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Sản phẩm bạn quan tâm nhất (Có thể chọn nhiều):</label>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="product" value="electronics"> Đồ điện tử</label>
-                <label><input type="checkbox" name="product" value="fashion"> Thời trang</label>
-                <label><input type="checkbox" name="product" value="food"> Thực phẩm</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="feedback">Ý kiến đóng góp (Nếu có):</label>
-            <textarea id="feedback" name="feedback" placeholder="Hãy cho chúng tôi biết suy nghĩ của bạn..."></textarea>
-        </div>
-
-        <button type="submit">Gửi khảo sát</button>
-    </form>
-</div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Laptop Dell Inspiron 15</td>
+                    <td class="price">15,990,000 đ</td>
+                    <td class="qty">10</td>
+                </tr>
+                <tr>
+                    <td>Điện thoại iPhone 15 Pro</td>
+                    <td class="price">28,500,000 đ</td>
+                    <td class="qty">25</td>
+                </tr>
+                <tr>
+                    <td>Tai nghe Sony WH-1000XM5</td>
+                    <td class="price">7,490,000 đ</td>
+                    <td class="qty">50</td>
+                </tr>
+                <tr>
+                    <td>Bàn phím cơ Keychron K2</td>
+                    <td class="price">2,150,000 đ</td>
+                    <td class="qty">30</td>
+                </tr>
+                <tr>
+                    <td>Màn hình LG 27" 4K</td>
+                    <td class="price">9,800,000 đ</td>
+                    <td class="qty">15</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
