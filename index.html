@@ -3,220 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch họp công ty</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .table-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background-color: #2980b9;
-            color: #fff;
-        }
-
-        th {
-            padding: 14px 20px;
-            text-align: center;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 12px 18px;
-            border: 1px solid #dde3ea;
-            font-size: 0.95rem;
-            vertical-align: middle;
-        }
-
-        /* Cột Ngày - gộp rowspan */
-        td.ngay {
-            text-align: center;
-            font-weight: bold;
-            background-color: #eaf4fb;
-            color: #1a5276;
-            white-space: nowrap;
-        }
-
-        /* Cột Giờ */
-        td.gio {
-            text-align: center;
-            white-space: nowrap;
-            color: #555;
-        }
-
-        /* Ô gộp colspan - họp cả ngày / kéo dài */
-        td.hop-dai {
-            text-align: center;
-            font-style: italic;
-            background-color: #fef9e7;
-            color: #7d6608;
-            font-weight: bold;
-        }
-
-        /* Màu xen kẽ theo nhóm ngày */
-        tr.nhom-chan td.noi-dung {
-            background-color: #f9f9f9;
-        }
-
-        tr.nhom-le td.noi-dung {
-            background-color: #ffffff;
-        }
-
-        tbody tr:hover td {
-            background-color: #d6eaf8 !important;
-            transition: background-color 0.2s;
-        }
-
-        /* Badge trạng thái */
-        .badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 8px;
-        }
-
-        .badge-quan-trong {
-            background-color: #e74c3c;
-            color: #fff;
-        }
-
-        .badge-thuong {
-            background-color: #27ae60;
-            color: #fff;
-        }
-    </style>
+    <title>Danh sách trong CSS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Lịch họp công ty</h1>
+    <div class="container">
+        <h1>Danh sách trong CSS</h1>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Ngày</th>
-                    <th>Giờ</th>
-                    <th>Nội dung cuộc họp</th>
-                </tr>
-            </thead>
-            <tbody>
+        <!-- ====== Phần 2: list-style-type: square ====== -->
+        <section>
+            <h2>2. Kiểu đánh dấu: <code>square</code></h2>
+            <p>Danh sách không có thứ tự – dấu đánh dấu dạng ô vuông.</p>
+            <ul class="list-square">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+            </ul>
+        </section>
 
-                <!-- ===== Thứ Hai 20/10 – 2 cuộc họp (rowspan=2) ===== -->
-                <tr class="nhom-le">
-                    <td class="ngay" rowspan="2">
-                        Thứ Hai<br>20/10/2025
-                    </td>
-                    <td class="gio">08:00 – 09:00</td>
-                    <td class="noi-dung">
-                        Họp giao ban đầu tuần – Tổng kết kết quả tuần trước
-                        <span class="badge badge-thuong">Thường</span>
-                    </td>
-                </tr>
-                <tr class="nhom-le">
-                    <td class="gio">14:00 – 16:00</td>
-                    <td class="noi-dung">
-                        Họp chiến lược kinh doanh Q4 – Ban Giám đốc
-                        <span class="badge badge-quan-trong">Quan trọng</span>
-                    </td>
-                </tr>
+        <!-- ====== Phần 3: list-style-type: upper-roman ====== -->
+        <section>
+            <h2>3. Danh sách có thứ tự – Số La Mã viết hoa</h2>
+            <p>Các bước học lập trình, đánh số bằng chữ số La Mã viết hoa.</p>
+            <ol class="list-roman">
+                <li>Học HTML</li>
+                <li>Học CSS</li>
+                <li>Học JavaScript</li>
+                <li>Học Git</li>
+            </ol>
+        </section>
 
-                <!-- ===== Thứ Ba 21/10 – họp cả ngày (colspan để gộp cột Giờ + Nội dung) ===== -->
-                <tr class="nhom-chan">
-                    <td class="ngay">
-                        Thứ Ba<br>21/10/2025
-                    </td>
-                    <!-- colspan=2: gộp cột "Giờ" và "Nội dung cuộc họp" thành 1 ô -->
-                    <td class="hop-dai" colspan="2">
-                        🗓️ Hội nghị tổng kết năm – Diễn ra cả ngày (08:00 – 17:00)
-                        <span class="badge badge-quan-trong">Quan trọng</span>
-                    </td>
-                </tr>
+        <!-- ====== Phần 4: list-style-image ====== -->
+        <section>
+            <h2>4. Hình ảnh làm dấu đánh dấu</h2>
+            <p>Sử dụng <code>list-style-image</code> với file ảnh SVG tùy chỉnh.</p>
+            <ul class="list-image">
+                <li>Visual Studio Code</li>
+                <li>Google Chrome</li>
+                <li>GitHub</li>
+                <li>Git</li>
+            </ul>
+        </section>
 
-                <!-- ===== Thứ Tư 22/10 – 3 cuộc họp (rowspan=3) ===== -->
-                <tr class="nhom-le">
-                    <td class="ngay" rowspan="3">
-                        Thứ Tư<br>22/10/2025
-                    </td>
-                    <td class="gio">09:00 – 10:00</td>
-                    <td class="noi-dung">
-                        Họp nhóm phát triển sản phẩm – Demo tính năng mới
-                        <span class="badge badge-thuong">Thường</span>
-                    </td>
-                </tr>
-                <tr class="nhom-le">
-                    <td class="gio">11:00 – 12:00</td>
-                    <td class="noi-dung">
-                        Họp review thiết kế UI/UX – Phòng Design
-                        <span class="badge badge-thuong">Thường</span>
-                    </td>
-                </tr>
-                <tr class="nhom-le">
-                    <td class="gio">15:00 – 17:00</td>
-                    <td class="noi-dung">
-                        Họp đánh giá hiệu suất nhân viên – Phòng HR
-                        <span class="badge badge-quan-trong">Quan trọng</span>
-                    </td>
-                </tr>
+        <!-- ====== Phần 5: list-style-position ====== -->
+        <section>
+            <h2>5. Vị trí dấu đánh dấu: <code>outside</code> vs <code>inside</code></h2>
 
-                <!-- ===== Thứ Năm 23/10 – 2 cuộc họp (rowspan=2), cuộc họp 2 dùng colspan ===== -->
-                <tr class="nhom-chan">
-                    <td class="ngay" rowspan="2">
-                        Thứ Năm<br>23/10/2025
-                    </td>
-                    <td class="gio">09:30 – 10:30</td>
-                    <td class="noi-dung">
-                        Họp tiến độ dự án – Nhóm Backend &amp; Frontend
-                        <span class="badge badge-thuong">Thường</span>
-                    </td>
-                </tr>
-                <tr class="nhom-chan">
-                    <!-- colspan=2: cuộc họp khách hàng kéo dài, gộp Giờ + Nội dung -->
-                    <td class="hop-dai" colspan="2">
-                        🤝 Họp với đối tác khách hàng – Cả buổi chiều (13:00 – 17:00)
-                        <span class="badge badge-quan-trong">Quan trọng</span>
-                    </td>
-                </tr>
+            <div class="position-demo">
+                <div>
+                    <h3>outside (mặc định)</h3>
+                    <ul class="list-outside">
+                        <li>Dấu đánh dấu nằm ngoài vùng văn bản, thụt lề rõ ràng</li>
+                        <li>Dòng thứ hai căn thẳng với dòng đầu của văn bản</li>
+                        <li>Thường dùng hơn</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>inside</h3>
+                    <ul class="list-inside">
+                        <li>Dấu đánh dấu nằm trong vùng văn bản, không thụt lề</li>
+                        <li>Dòng thứ hai căn thẳng sát lề trái của mục</li>
+                        <li>Phù hợp trong một số layout nhất định</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                <!-- ===== Thứ Sáu 24/10 – 1 cuộc họp ===== -->
-                <tr class="nhom-le">
-                    <td class="ngay">
-                        Thứ Sáu<br>24/10/2025
-                    </td>
-                    <td class="gio">16:00 – 17:00</td>
-                    <td class="noi-dung">
-                        Họp tổng kết cuối tuần – Lên kế hoạch tuần tới
-                        <span class="badge badge-thuong">Thường</span>
-                    </td>
-                </tr>
+        <!-- ====== Phần 6: Thuộc tính rút gọn list-style ====== -->
+        <section>
+            <h2>6. Thuộc tính rút gọn <code>list-style</code></h2>
+            <p>
+                Viết gọn: <code>list-style: square inside none;</code><br>
+                (type | position | image)
+            </p>
+            <ul class="list-shorthand">
+                <li>Viết CSS ngắn gọn hơn</li>
+                <li>Kết hợp type + position + image trong một dòng</li>
+                <li>Dễ bảo trì</li>
+                <li>Ưu tiên image nếu được đặt</li>
+            </ul>
+        </section>
 
-            </tbody>
-        </table>
+        <!-- ====== Phần 7: Màu sắc và khoảng cách ====== -->
+        <section>
+            <h2>7. Danh sách với màu sắc và khoảng cách</h2>
+            <ul class="list-colored">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+            </ul>
+        </section>
+
+        <!-- ====== Phần 8: Bài tập tổng hợp ====== -->
+        <section class="section-tong-hop">
+            <h2>8. Lộ trình học lập trình Web</h2>
+            <ul class="list-roadmap">
+                <li>HTML – Nền tảng cấu trúc trang web</li>
+                <li>CSS – Định kiểu và giao diện</li>
+                <li>JavaScript – Tương tác và logic</li>
+                <li>Git – Quản lý phiên bản mã nguồn</li>
+                <li>GitHub – Lưu trữ và cộng tác dự án</li>
+            </ul>
+        </section>
+
     </div>
 
 </body>
