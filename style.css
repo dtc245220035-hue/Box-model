@@ -1,151 +1,165 @@
 /* ============================================
-   style.css – Bộ chọn CSS
+   style.css – Màu nền và ảnh nền
    ============================================ */
 
+/* ---- Reset & Base ---- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* ============================================
-   Bộ chọn ELEMENT – body
-   Đổi màu nền toàn trang
+   body – Thiết lập màu nền trang web
    ============================================ */
 body {
-    background-color: #eaf4fb;   /* ← Đổi màu nền trang: xanh nhạt */
+    background-color: #eaf2f8;   /* ← Màu nền xanh nhạt cho toàn trang */
     font-family: Arial, sans-serif;
     color: #333;
-    margin: 0;
     padding: 40px 20px;
+    min-height: 100vh;
 }
 
 /* ============================================
-   Bộ chọn CLASS – .container
-   ============================================ */
-.container {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* ============================================
-   Bộ chọn ELEMENT – h1
-   Căn giữa tiêu đề
+   h1 – Tiêu đề chính
    ============================================ */
 h1 {
-    text-align: center;          /* ← Căn giữa tiêu đề */
-    color: #1a5276;
+    text-align: center;
     font-size: 2rem;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #2980b9;
-    padding-bottom: 14px;
+    color: #1a5276;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
 }
 
 /* ============================================
-   Bộ chọn ID – #intro
-   Định dạng đoạn văn giới thiệu
+   .intro – Đoạn văn mô tả
    ============================================ */
-#intro {
-    background-color: #d6eaf8;
-    border-left: 4px solid #2980b9;
-    padding: 14px 18px;
-    border-radius: 6px;
+.intro {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
+    color: #555;
     line-height: 1.8;
-    color: #1b4f72;
-    margin-bottom: 24px;
 }
 
 /* ============================================
-   Bộ chọn CLASS – .section-title
+   .hero-box – Khối div chứa ảnh nền chính
    ============================================ */
-.section-title {
-    color: #2e86c1;
-    font-size: 1.2rem;
+.hero-box {
+    /* ← Ảnh nền: file bg.svg kết hợp với gradient overlay */
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(21, 67, 96, 0.82) 0%,
+            rgba(41, 128, 185, 0.75) 100%
+        ),
+        url('bg.svg');
+
+    background-color: #1a5276;   /* ← Màu nền dự phòng khi ảnh chưa tải */
+    background-size: cover;      /* ← Ảnh phủ toàn bộ khối */
+    background-position: center; /* ← Căn ảnh vào giữa */
+    background-repeat: no-repeat;/* ← Không lặp ảnh */
+
+    /* Kích thước và bo góc */
+    min-height: 280px;
+    border-radius: 14px;
+    max-width: 860px;
+    margin: 0 auto 40px;
+
+    /* Căn giữa nội dung bên trong */
+    display: flex;
+    align-items: center;         /* ← Căn giữa theo chiều dọc */
+    justify-content: center;     /* ← Căn giữa theo chiều ngang */
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   .hero-content – Nội dung bên trong hero-box
+   ============================================ */
+.hero-content {
+    text-align: center;          /* ← Căn giữa văn bản */
+    padding: 40px 30px;
+    color: #ffffff;
+}
+
+.hero-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    text-shadow: 1px 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+    opacity: 0.92;
+    line-height: 1.7;
+}
+
+/* Nút trong hero */
+.btn {
+    display: inline-block;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.97rem;
+    transition: background-color 0.25s, transform 0.15s;
+}
+
+.btn:hover {
+    background-color: #d68910;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   .card-group – Nhóm 3 card thông tin
+   ============================================ */
+.card-group {
+    display: flex;
+    gap: 20px;
+    max-width: 860px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   .card – Từng card với màu nền riêng
+   ============================================ */
+.card {
+    flex: 1;
+    min-width: 200px;
+    background-color: #ffffff;   /* ← Màu nền trắng cho card */
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-top: 4px solid #2980b9;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card-icon {
+    font-size: 2rem;
+    display: block;
     margin-bottom: 12px;
 }
 
-/* ============================================
-   Bộ chọn ELEMENT – ul
-   Định dạng danh sách sở thích
-   ============================================ */
-.hobby-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-}
-
-/* ============================================
-   Bộ chọn ELEMENT – li (trong .hobby-list)
-   ============================================ */
-.hobby-list li {
-    padding: 12px 18px;
-    border-radius: 8px;
+.card h3 {
+    color: #1a5276;
     margin-bottom: 10px;
-    font-size: 0.97rem;
-    font-weight: bold;
+    font-size: 1.05rem;
 }
 
-/* ============================================
-   Bộ chọn PSEUDO-CLASS – :nth-child
-   Màu sắc khác nhau cho từng mục danh sách
-   ============================================ */
-.hobby-list li:nth-child(1) {
-    background-color: #d5f5e3;   /* ← Xanh lá nhạt */
-    color: #1e8449;
-    border-left: 5px solid #27ae60;
-}
-
-.hobby-list li:nth-child(2) {
-    background-color: #fdebd0;   /* ← Cam nhạt */
-    color: #784212;
-    border-left: 5px solid #e67e22;
-}
-
-.hobby-list li:nth-child(3) {
-    background-color: #e8daef;   /* ← Tím nhạt */
-    color: #4a235a;
-    border-left: 5px solid #8e44ad;
-}
-
-/* ============================================
-   Bộ chọn GROUPING – .btn-wrapper
-   ============================================ */
-.btn-wrapper {
-    text-align: center;
-}
-
-/* ============================================
-   Bộ chọn CLASS – .btn-main
-   Định dạng nút bấm
-   ============================================ */
-.btn-main {
-    background-color: #2980b9;   /* ← Màu nền nút */
-    color: #ffffff;
-    border: none;
-    padding: 14px 36px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    /* Transition mượt khi hover */
-    transition: background-color 0.25s, transform 0.15s, box-shadow 0.25s;
-}
-
-/* ============================================
-   Bộ chọn PSEUDO-CLASS – :hover
-   Hiệu ứng hover cho nút bấm
-   ============================================ */
-.btn-main:hover {
-    background-color: #1a5276;   /* ← Đổi màu khi rê chuột */
-    transform: translateY(-3px); /* ← Nhấc lên nhẹ */
-    box-shadow: 0 6px 16px rgba(41, 128, 185, 0.45);
-}
-
-/* ============================================
-   Bộ chọn PSEUDO-CLASS – :active
-   Hiệu ứng khi nhấn giữ nút
-   ============================================ */
-.btn-main:active {
-    transform: translateY(0);    /* ← Trở về vị trí khi click */
-    box-shadow: none;
-    background-color: #154360;
+.card p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
 }
