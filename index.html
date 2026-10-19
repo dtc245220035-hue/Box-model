@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách sản phẩm</title>
+    <title>Lịch họp công ty</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,11 +20,11 @@
         }
 
         .table-container {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
             overflow: hidden;
         }
 
@@ -34,89 +34,187 @@
         }
 
         thead {
-            background-color: #3498db;
+            background-color: #2980b9;
             color: #fff;
         }
 
         th {
             padding: 14px 20px;
-            text-align: left;
+            text-align: center;
             font-size: 1rem;
             letter-spacing: 0.5px;
         }
 
         td {
-            padding: 12px 20px;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 12px 18px;
+            border: 1px solid #dde3ea;
             font-size: 0.95rem;
+            vertical-align: middle;
         }
 
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
+        /* Cột Ngày - gộp rowspan */
+        td.ngay {
+            text-align: center;
+            font-weight: bold;
             background-color: #eaf4fb;
-            transition: background-color 0.2s;
+            color: #1a5276;
+            white-space: nowrap;
         }
 
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
+        /* Cột Giờ */
+        td.gio {
+            text-align: center;
+            white-space: nowrap;
+            color: #555;
         }
 
-        tbody tr:nth-child(even):hover {
-            background-color: #eaf4fb;
-        }
-
-        .price {
-            color: #e74c3c;
+        /* Ô gộp colspan - họp cả ngày / kéo dài */
+        td.hop-dai {
+            text-align: center;
+            font-style: italic;
+            background-color: #fef9e7;
+            color: #7d6608;
             font-weight: bold;
         }
 
-        .qty {
-            text-align: center;
+        /* Màu xen kẽ theo nhóm ngày */
+        tr.nhom-chan td.noi-dung {
+            background-color: #f9f9f9;
+        }
+
+        tr.nhom-le td.noi-dung {
+            background-color: #ffffff;
+        }
+
+        tbody tr:hover td {
+            background-color: #d6eaf8 !important;
+            transition: background-color 0.2s;
+        }
+
+        /* Badge trạng thái */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .badge-quan-trong {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .badge-thuong {
+            background-color: #27ae60;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <h1>Danh sách sản phẩm</h1>
+    <h1>Lịch họp công ty</h1>
 
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
+                    <th>Ngày</th>
+                    <th>Giờ</th>
+                    <th>Nội dung cuộc họp</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Laptop Dell Inspiron 15</td>
-                    <td class="price">15,990,000 đ</td>
-                    <td class="qty">10</td>
+
+                <!-- ===== Thứ Hai 20/10 – 2 cuộc họp (rowspan=2) ===== -->
+                <tr class="nhom-le">
+                    <td class="ngay" rowspan="2">
+                        Thứ Hai<br>20/10/2025
+                    </td>
+                    <td class="gio">08:00 – 09:00</td>
+                    <td class="noi-dung">
+                        Họp giao ban đầu tuần – Tổng kết kết quả tuần trước
+                        <span class="badge badge-thuong">Thường</span>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Điện thoại iPhone 15 Pro</td>
-                    <td class="price">28,500,000 đ</td>
-                    <td class="qty">25</td>
+                <tr class="nhom-le">
+                    <td class="gio">14:00 – 16:00</td>
+                    <td class="noi-dung">
+                        Họp chiến lược kinh doanh Q4 – Ban Giám đốc
+                        <span class="badge badge-quan-trong">Quan trọng</span>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Tai nghe Sony WH-1000XM5</td>
-                    <td class="price">7,490,000 đ</td>
-                    <td class="qty">50</td>
+
+                <!-- ===== Thứ Ba 21/10 – họp cả ngày (colspan để gộp cột Giờ + Nội dung) ===== -->
+                <tr class="nhom-chan">
+                    <td class="ngay">
+                        Thứ Ba<br>21/10/2025
+                    </td>
+                    <!-- colspan=2: gộp cột "Giờ" và "Nội dung cuộc họp" thành 1 ô -->
+                    <td class="hop-dai" colspan="2">
+                        🗓️ Hội nghị tổng kết năm – Diễn ra cả ngày (08:00 – 17:00)
+                        <span class="badge badge-quan-trong">Quan trọng</span>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Bàn phím cơ Keychron K2</td>
-                    <td class="price">2,150,000 đ</td>
-                    <td class="qty">30</td>
+
+                <!-- ===== Thứ Tư 22/10 – 3 cuộc họp (rowspan=3) ===== -->
+                <tr class="nhom-le">
+                    <td class="ngay" rowspan="3">
+                        Thứ Tư<br>22/10/2025
+                    </td>
+                    <td class="gio">09:00 – 10:00</td>
+                    <td class="noi-dung">
+                        Họp nhóm phát triển sản phẩm – Demo tính năng mới
+                        <span class="badge badge-thuong">Thường</span>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Màn hình LG 27" 4K</td>
-                    <td class="price">9,800,000 đ</td>
-                    <td class="qty">15</td>
+                <tr class="nhom-le">
+                    <td class="gio">11:00 – 12:00</td>
+                    <td class="noi-dung">
+                        Họp review thiết kế UI/UX – Phòng Design
+                        <span class="badge badge-thuong">Thường</span>
+                    </td>
                 </tr>
+                <tr class="nhom-le">
+                    <td class="gio">15:00 – 17:00</td>
+                    <td class="noi-dung">
+                        Họp đánh giá hiệu suất nhân viên – Phòng HR
+                        <span class="badge badge-quan-trong">Quan trọng</span>
+                    </td>
+                </tr>
+
+                <!-- ===== Thứ Năm 23/10 – 2 cuộc họp (rowspan=2), cuộc họp 2 dùng colspan ===== -->
+                <tr class="nhom-chan">
+                    <td class="ngay" rowspan="2">
+                        Thứ Năm<br>23/10/2025
+                    </td>
+                    <td class="gio">09:30 – 10:30</td>
+                    <td class="noi-dung">
+                        Họp tiến độ dự án – Nhóm Backend &amp; Frontend
+                        <span class="badge badge-thuong">Thường</span>
+                    </td>
+                </tr>
+                <tr class="nhom-chan">
+                    <!-- colspan=2: cuộc họp khách hàng kéo dài, gộp Giờ + Nội dung -->
+                    <td class="hop-dai" colspan="2">
+                        🤝 Họp với đối tác khách hàng – Cả buổi chiều (13:00 – 17:00)
+                        <span class="badge badge-quan-trong">Quan trọng</span>
+                    </td>
+                </tr>
+
+                <!-- ===== Thứ Sáu 24/10 – 1 cuộc họp ===== -->
+                <tr class="nhom-le">
+                    <td class="ngay">
+                        Thứ Sáu<br>24/10/2025
+                    </td>
+                    <td class="gio">16:00 – 17:00</td>
+                    <td class="noi-dung">
+                        Họp tổng kết cuối tuần – Lên kế hoạch tuần tới
+                        <span class="badge badge-thuong">Thường</span>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
     </div>
