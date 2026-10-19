@@ -3,220 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhúng CSS vào trang HTML</title>
-
-    <!-- ================================================
-         CÁCH 2: Internal Style – CSS viết trong thẻ <style>
-         bên trong <head> của file HTML
-         ================================================ -->
-    <style>
-        /* Định dạng chung */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 30px 20px;
-        }
-
-        .container {
-            max-width: 780px;
-            margin: 0 auto;
-        }
-
-        h1.page-title {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 36px;
-            font-size: 1.8rem;
-        }
-
-        section {
-            background: #fff;
-            border-radius: 10px;
-            padding: 28px 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            border-left: 5px solid transparent;
-        }
-
-        section .label {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            padding: 3px 10px;
-            border-radius: 12px;
-            margin-bottom: 14px;
-        }
-
-        /* ---- Phần 2: Internal Style ---- */
-        .section-internal {
-            border-left-color: #e67e22;
-        }
-
-        .section-internal .label {
-            background-color: #fdebd0;
-            color: #e67e22;
-        }
-
-        /* Màu sắc áp dụng bằng Internal Style */
-        .section-internal h2 {
-            color: #e67e22;       /* ← Màu cam – Internal CSS */
-        }
-
-        .section-internal p {
-            color: #784212;       /* ← Màu nâu – Internal CSS */
-            line-height: 1.8;
-        }
-    </style>
-
-    <!-- ================================================
-         CÁCH 3: External Style – CSS liên kết từ file ngoài
-         ================================================ -->
+    <title>Trang web của tôi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="page-title">Ba cách nhúng CSS vào HTML</h1>
+        <!-- Bộ chọn element: h1 -->
+        <h1>Trang web của tôi</h1>
 
-    <!-- ================================================
-         PHẦN 1: Inline Style
-         CSS viết trực tiếp trong thuộc tính style="" của thẻ HTML
-         ================================================ -->
-    <section style="border-left: 5px solid #27ae60; background: #fff;">
-
-        <!-- Label nhận dạng -->
-        <span class="label"
-              style="background-color: #d5f5e3; color: #1e8449; font-size: 0.78rem;
-                     font-weight: bold; letter-spacing: 1px; padding: 3px 10px;
-                     border-radius: 12px; display: inline-block; margin-bottom: 14px;">
-            CÁCH 1 – INLINE STYLE
-        </span>
-
-        <!-- Tiêu đề màu sắc bằng inline style -->
-        <h2 style="color: #27ae60;">
-            Inline Style
-        </h2>
-
-        <!-- Đoạn văn màu sắc bằng inline style -->
-        <p style="color: #145a32; line-height: 1.8;">
-            <strong>Inline Style</strong> được viết trực tiếp vào thuộc tính
-            <code style="background:#eafaf1; color:#27ae60; padding:2px 6px; border-radius:4px;">
-                style=""
-            </code>
-            của từng thẻ HTML. Ưu điểm là áp dụng ngay lập tức cho phần tử đó, nhưng
-            khó bảo trì khi trang web có nhiều phần tử vì phải sửa từng thẻ một.
+        <!-- Bộ chọn element: p -->
+        <p id="intro">
+            Xin chào! Tôi là <strong>Nguyễn Văn A</strong>, một sinh viên đam mê
+            lập trình Web. Tôi đang học HTML, CSS và JavaScript tại CodeGym
+            với mục tiêu trở thành một lập trình viên chuyên nghiệp.
         </p>
 
-        <!-- Giải thích kỹ thuật -->
-        <p style="margin-top: 12px; font-size: 0.85rem; color: #7f8c8d; font-style: italic;">
-            → Màu tiêu đề: <code style="color:#27ae60;">color: #27ae60</code> &nbsp;|&nbsp;
-               Màu đoạn văn: <code style="color:#145a32;">color: #145a32</code>
-               (đều viết bằng <strong>Inline Style</strong>)
-        </p>
-    </section>
+        <!-- Bộ chọn class: .section-title -->
+        <h2 class="section-title">🎯 Sở thích của tôi</h2>
 
-    <!-- ================================================
-         PHẦN 2: Internal Style
-         CSS viết trong thẻ <style> bên trong <head>
-         ================================================ -->
-    <section class="section-internal">
+        <!-- Bộ chọn element: ul / li + bộ chọn nth-child -->
+        <ul class="hobby-list">
+            <li>💻 Lập trình Web</li>
+            <li>📚 Đọc sách công nghệ</li>
+            <li>⚽ Chơi thể thao</li>
+        </ul>
 
-        <span class="label">CÁCH 2 – INTERNAL STYLE</span>
+        <!-- Bộ chọn element + pseudo-class :hover cho button -->
+        <div class="btn-wrapper">
+            <button class="btn-main">Nhấn vào đây</button>
+        </div>
 
-        <h2>Internal Style</h2>
+    </div>
 
-        <p>
-            <strong>Internal Style</strong> được viết trong thẻ
-            <code>&lt;style&gt;</code> đặt bên trong thẻ <code>&lt;head&gt;</code>
-            của file HTML. Ưu điểm là quản lý CSS tập trung trong một file, phù hợp
-            với các trang đơn lẻ, nhỏ gọn. Nhược điểm là không tái sử dụng được
-            giữa nhiều file HTML khác nhau.
-        </p>
-
-        <p style="margin-top: 12px; font-size: 0.85rem; color: #7f8c8d; font-style: italic;">
-            → Màu tiêu đề: <code>color: #e67e22</code> &nbsp;|&nbsp;
-               Màu đoạn văn: <code>color: #784212</code>
-               (đều viết bằng <strong>Internal Style</strong> trong &lt;head&gt;)
-        </p>
-    </section>
-
-    <!-- ================================================
-         PHẦN 3: External Style
-         CSS viết trong file style.css riêng biệt, liên kết bằng <link>
-         ================================================ -->
-    <section class="section-external">
-
-        <span class="label external-label">CÁCH 3 – EXTERNAL STYLE</span>
-
-        <h2 class="external-heading">External Style</h2>
-
-        <p class="external-paragraph">
-            <strong>External Style</strong> được viết trong một file
-            <code>.css</code> riêng biệt (ví dụ: <code>style.css</code>),
-            sau đó liên kết vào HTML bằng thẻ
-            <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
-            đặt trong <code>&lt;head&gt;</code>. Đây là cách được khuyến nghị
-            nhất vì CSS có thể tái sử dụng cho nhiều trang, dễ bảo trì và
-            tách biệt hoàn toàn nội dung với định dạng.
-        </p>
-
-        <p class="external-note">
-            → Màu tiêu đề và đoạn văn được định nghĩa trong file
-            <strong>style.css</strong> (External Style)
-        </p>
-    </section>
-
-    <!-- ================================================
-         BẢNG SO SÁNH 3 CÁCH
-         ================================================ -->
-    <section class="section-table">
-        <span class="label table-label">SO SÁNH 3 CÁCH</span>
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th>Tiêu chí</th>
-                    <th style="color:#27ae60;">Inline</th>
-                    <th style="color:#e67e22;">Internal</th>
-                    <th style="color:#2980b9;">External</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Vị trí viết CSS</td>
-                    <td>Trong thuộc tính <code>style=""</code></td>
-                    <td>Trong thẻ <code>&lt;style&gt;</code></td>
-                    <td>File <code>.css</code> riêng</td>
-                </tr>
-                <tr>
-                    <td>Phạm vi áp dụng</td>
-                    <td>Một phần tử duy nhất</td>
-                    <td>Toàn trang đó</td>
-                    <td>Nhiều trang HTML</td>
-                </tr>
-                <tr>
-                    <td>Tái sử dụng</td>
-                    <td>❌ Không</td>
-                    <td>⚠️ Hạn chế</td>
-                    <td>✅ Dễ dàng</td>
-                </tr>
-                <tr>
-                    <td>Dễ bảo trì</td>
-                    <td>❌ Khó</td>
-                    <td>⚠️ Trung bình</td>
-                    <td>✅ Dễ nhất</td>
-                </tr>
-                <tr>
-                    <td>Độ ưu tiên (specificity)</td>
-                    <td>Cao nhất</td>
-                    <td>Trung bình</td>
-                    <td>Thấp nhất</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-</div>
 </body>
 </html>
